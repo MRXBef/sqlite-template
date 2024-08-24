@@ -8,8 +8,8 @@ export const register = async(req, res) => {
     if(password !== confPassword) return res.status(400).json({msg: "Password and confirm password must be match!"})
 
     try {
-        const checkDuplicateUsername = await Users.findAll({where: {username: username}})
-        if(checkDuplicateUsername[0]) return res.status(409).json({msg: "Username is already taken!"})
+        const checkDuplicateUsername = await Users.findOne({where: {username: username}})
+        if(checkDuplicateUsername) return res.status(409).json({msg: "Username is already taken!"})
 
         const hashPassword = await bcrypt.hash(password, 10)
         await Users.create({
