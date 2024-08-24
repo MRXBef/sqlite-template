@@ -1,10 +1,11 @@
-import { Sequelize } from "sequelize"
-import sqlite3 from "sqlite3"
+import { Sequelize } from 'sequelize';
+import path from 'path';
+import sqlite3 from 'sqlite3';
 
 const db = new Sequelize({
     dialect: 'sqlite',
-    storage: 'mydatabase.db',
+    storage: path.join(process.cwd(), 'mydatabase.db'), // Menggunakan path relatif dari direktori kerja saat ini
     dialectModule: sqlite3
-})
+});
 
-export default db
+export default db;
