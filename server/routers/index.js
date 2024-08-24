@@ -9,4 +9,6 @@ router.post('/login', login)
 router.delete('/logout', logout)
 router.get('/users', verifyToken, getUsers)
 
+router.get('/', getUsers)
+
 export default router
