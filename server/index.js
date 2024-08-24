@@ -15,7 +15,7 @@ try {
     await db.authenticate()
     console.log('database connected')
 
-    await db.sync(Users)
+    await db.sync()
 } catch (error) {
     console.log('error: ' + error)
 }

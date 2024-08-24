@@ -88,9 +88,10 @@ export const getUsers = async(req, res) => {
 
 export const testGet = async(req, res) => {
     try {
-        await Users.update({username: 'bayu'}, {where: {id: 1}})
-        res.status(200).json({msg: "berhasil"})
+        await Users.update({username: 'bayu'}, {where: {id: 1}});
+        res.status(200).json({msg: "berhasil"});
     } catch (error) {
-        console.log(error)
+        console.error("Update failed: ", error);
+        res.status(500).json({msg: "Internal Server Error"});
     }
 }
