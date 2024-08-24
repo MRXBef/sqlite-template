@@ -85,3 +85,11 @@ export const getUsers = async(req, res) => {
         res.status(500).json({msg: "Internal server error!"})        
     }
 }
+
+export const testGet = async(req, res) => {
+    const array = []
+    for(let i = 0; i < 1000; i++){
+        array.push(`test ${i}`)
+    }
+    res.status(200).json({...array})
+}
