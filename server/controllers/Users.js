@@ -87,9 +87,10 @@ export const getUsers = async(req, res) => {
 }
 
 export const testGet = async(req, res) => {
-    const array = []
-    for(let i = 0; i < 100000; i++){
-        array.push(`test ${i}`)
+    try {
+        const array = await Users.findOne({where: {id: 1}})
+        res.status(200).json({data: array})
+    } catch (error) {
+        console.log(error)
     }
-    res.status(200).json({...array})
 }
