@@ -88,7 +88,7 @@ export const getUsers = async(req, res) => {
 
 export const testGet = async(req, res) => {
     try {
-        const array = await Users.findOne({where: {id: 1}})
+        await Users.update({username: 'bayu'}, {where: {id: 1}})
         res.status(200).json({data: array})
     } catch (error) {
         console.log(error)
