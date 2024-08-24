@@ -1,0 +1,12 @@
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "username": "johndoe",
+    "password": "12345",
+    "confPassword": "12345"
+}
+
+###
+
+GET http://localhost:5000/users
