@@ -11,14 +11,14 @@ dotenv.config()
 const app = express()
 const PORT = process.env.PORT
 
-try {
-    await db.authenticate()
-    console.log('database connected')
+// try {
+//     await db.authenticate()
+//     console.log('database connected')
 
-    await db.sync(Users)
-} catch (error) {
-    console.log('error: ' + error)
-}
+//     await db.sync(Users)
+// } catch (error) {
+//     console.log('error: ' + error)
+// }
 
 app.use(cors())
 app.use(cookieParser())
