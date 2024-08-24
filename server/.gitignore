@@ -15,7 +15,7 @@ coverage/
 # Logs
 *.log
 
-# Runtime data
+# Runtime data 
 pids
 *.pid
 *.seed
