@@ -1,35 +1,28 @@
-import { Sequelize } from 'sequelize';
-import express, { json } from 'express';
-import dotenv from 'dotenv';
-import db from './config/Database.js';
-import Users from './models/userModel.js';
-import router from './routers/index.js';
-import cors from 'cors';
-import cookieParser from 'cookie-parser';
+import express, {json} from 'express'
+import dotenv from 'dotenv'
+import db from './config/Database.js'
+import Users from './models/userModel.js'
+import router from './routers/index.js'
+import cors from 'cors'
+import cookieParser from 'cookie-parser'
 
-dotenv.config();
+dotenv.config()
 
-const app = express();
-const PORT = process.env.PORT || 3000; // Tambahkan default port jika tidak ada di .env
+const app = express()
+const PORT = process.env.PORT
 
-const startServer = async () => {
-  try {
-    await db.authenticate();
-    console.log('Database connected');
+try {
+    await db.authenticate()
+    console.log('database connected')
 
-    await db.sync(); // Sync tanpa argumen model
-  } catch (error) {
-    console.log('Error: ' + error);
-  }
+    await db.sync(Users)
+} catch (error) {
+    console.log('error: ' + error)
+}
 
-  app.use(cors());
-  app.use(cookieParser());
-  app.use(json());
-  app.use(router);
+app.use(cors())
+app.use(cookieParser())
+app.use(json())
+app.use(router)
 
-  app.listen(PORT, () => {
-    console.log(`App listening at port ${PORT}`);
-  });
-};
-
-startServer();
+app.listen(PORT, () => {console.log(`app listen at port ${PORT}`)})
