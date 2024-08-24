@@ -15,7 +15,7 @@ const startServer = async () => {
     try {
         await db.authenticate();
         console.log('Database connected');
-        await db.sync(); // pastikan `sync` tidak memerlukan argumen jika Anda tidak menggunakannya
+        await db.sync(Users); // pastikan `sync` tidak memerlukan argumen jika Anda tidak menggunakannya
 
         // Setup middleware
         app.use(cors());
