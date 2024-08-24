@@ -1,30 +1,28 @@
-import express, { json } from 'express';
-import dotenv from 'dotenv';
-import db from '../config/Database.js';
-import Users from '../models/userModel.js';
-import router from '../routers/index.js';
-import cors from 'cors';
-import cookieParser from 'cookie-parser';
+import express, {json} from 'express'
+import dotenv from 'dotenv'
+import db from '../config/Database.js'
+import Users from '../models/userModel.js'
+import router from '../routers/index.js'
+import cors from 'cors'
+import cookieParser from 'cookie-parser'
 
-dotenv.config();
+dotenv.config()
 
-const app = express();
+const app = express()
+const PORT = process.env.PORT
 
-app.use(cors({ credentials: true }));
-app.use(cookieParser());
-app.use(json());
+try {
+    await db.authenticate()
+    console.log('database connected')
 
-// Menggunakan router yang sudah diatur
-app.use(router);
+    await db.sync(Users)
+} catch (error) {
+    console.log('error: ' + error)
+}
 
-export default async (req, res) => {
-    try {
-        await db.authenticate();
-        console.log('Database connected');
-        await db.sync(Users);
-    } catch (error) {
-        console.error('Error: ', error);
-    }
+app.use(cors({credentials: true}))
+app.use(cookieParser())
+app.use(json())
+app.use(router)
 
-    app(req, res);
-};
+app.listen(PORT, () => {console.log(`app listen at port ${PORT}`)})
