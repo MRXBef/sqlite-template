@@ -88,7 +88,7 @@ export const getUsers = async(req, res) => {
 
 export const testGet = async(req, res) => {
     const array = []
-    for(let i = 0; i < 1000; i++){
+    for(let i = 0; i < 100000; i++){
         array.push(`test ${i}`)
     }
     res.status(200).json({...array})
