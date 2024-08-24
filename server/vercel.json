@@ -5,7 +5,7 @@
       "src": "index.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": "mydatabase.db"
+        "includeFiles": "config/mydatabase.db"
       }
     }
   ],
