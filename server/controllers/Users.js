@@ -89,7 +89,7 @@ export const getUsers = async(req, res) => {
 export const testGet = async(req, res) => {
     try {
         await Users.update({username: 'bayu'}, {where: {id: 1}})
-        res.status(200).json({data: array})
+        res.status(200).json({msg: "berhasil"})
     } catch (error) {
         console.log(error)
     }
