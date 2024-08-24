@@ -1,4 +1,4 @@
-POST http://localhost:5000/register
+POST https://sqlite-template.vercel.app/register
 Content-Type: application/json
 
 {
@@ -9,7 +9,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:5000/login
+POST https://sqlite-template.vercel.app/login
 Content-Type: application/json
 
 {
@@ -24,4 +24,4 @@ DELETE http://localhost:5000/logout
 ###
 
 GET http://localhost:5000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lU2lnbiI6ImpvaG5kb2UiLCJpYXQiOjE3MjQ1MTM1MzgsImV4cCI6MTcyNDUxMzU1M30.UP6vKgEL_4KBAYcrgGGtsl4yEiCjDLi-VFdfnIOK9-U
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lU2lnbiI6ImpvaG5kb2UiLCJpYXQiOjE3MjQ1MTM1MzgsImV4cCI6MTcyNDUxMzU1M30.UP6vKgEL_4KBAYcrgGGtsl4yEiCjDLi-VFdfnIOK9-U
