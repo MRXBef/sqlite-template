@@ -59,6 +59,21 @@ export const login = async(req, res) => {
     }
 }
 
+export const logout = async(req, res) => {
+    const {refreshToken} = req.cookies
+    if(!refreshToken) return res.sendStatus(400)
+    try {
+        const user = await Users.findOne({where: {refreshToken: refreshToken}})
+        if(!user) return res.sendStatus(403)
+
+        await Users.update({refreshToken: null}, {where: {id: user.id}})
+        res.clearCookie('refreshToken').status(200).json({msg: "Logout successfuly"})
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({msg: "Internal server error!"})
+    }
+}
+
 export const getUsers = async(req, res) => {
     try {
         const users = await Users.findAll()

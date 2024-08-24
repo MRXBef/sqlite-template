@@ -4,6 +4,7 @@ import db from './config/Database.js'
 import Users from './models/userModel.js'
 import router from './routers/index.js'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 
 dotenv.config()
 
@@ -20,6 +21,7 @@ try {
 }
 
 app.use(cors({credentials: true}))
+app.use(cookieParser())
 app.use(json())
 app.use(router)
 
