@@ -1,8 +1,8 @@
 import express, {json} from 'express'
 import dotenv from 'dotenv'
-import db from './config/Database.js'
-import Users from './models/userModel.js'
-import router from './routers/index.js'
+import db from '../config/Database.js'
+import Users from '../models/userModel.js'
+import router from '../routers/index.js'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 
