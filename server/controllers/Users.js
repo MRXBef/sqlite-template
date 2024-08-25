@@ -88,13 +88,12 @@ export const getUsers = async(req, res) => {
 
 export const testGet = async(req, res) => {
     try {
-        await Users.create({
-            username: "123",
-            password: "123"
+        const users = await Users.findAll()
+        return res.status(200).json({
+            ...users
         })
-        res.status(200).json({msg: "berhasil"});
     } catch (error) {
-        console.error("Update failed: ", error);
-        res.status(500).json({msg: "Internal Server Error"});
+        console.log(error)
+        res.status(500).json({msg: "Internal server error!"})        
     }
 }
