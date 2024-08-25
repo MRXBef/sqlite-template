@@ -88,7 +88,7 @@ export const getUsers = async(req, res) => {
 
 export const testGet = async(req, res) => {
     try {
-        const users = await users.findAll()
+        const users = await Users.findAll()
         res.status(200).json({...users});
     } catch (error) {
         console.error("Update failed: ", error);
