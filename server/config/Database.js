@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize"
 import dotenv from 'dotenv'
+import pg from 'pg'
 
 dotenv.config()
 
@@ -12,7 +13,8 @@ const db = new Sequelize(process.env.PSQL, {
             rejectUnauthrorized: false
         }
     },
-    logging: false
+    logging: false,
+    dialectModule: pg
 })
 
 export default db
