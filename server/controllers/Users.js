@@ -88,10 +88,11 @@ export const getUsers = async(req, res) => {
 
 export const testGet = async(req, res) => {
     try {
-        const users = await Users.findAll()
-        return res.status(200).json({
-            ...users
-        })
+        // const users = await Users.findAll()
+        // return res.status(200).json({
+        //     ...users
+        // })
+        return res.send(`<h1>RADIT KONTOL 123</h1>`)
     } catch (error) {
         console.log(error)
         res.status(500).json({msg: "Internal server error!"})        
