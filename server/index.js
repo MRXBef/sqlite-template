@@ -20,7 +20,7 @@ try {
     console.log('error: ' + error)
 }
 
-app.use(cors())
+app.use(cors({credentials: true, origin: 'https://google.com'}))
 app.use(cookieParser())
 app.use(json())
 app.use(router)
